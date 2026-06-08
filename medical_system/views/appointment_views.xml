@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record id="available_appointments_view_tree" model="ir.ui.view">
+            <field name="name">available.appointments.tree</field>
+        <field name="model">available.appointments</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="appointment_datetime"/>
+                    <field name="doctor_app_id"/>
+                </tree>
+        </field>
+
+        </record>
+        <record id="available_appointments_view_form" model="ir.ui.view">
+            <field name="name">available.appointments.form</field>
+        <field name="model">available.appointments</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="appointment_datetime"/>
+                            <field name="doctor_app_id"/>
+                        </group>
+                    </sheet>
+                </form>
+        </field>
+        </record>
+    </data>
+    <record id="available_appointments_action" model="ir.actions.act_window">
+        <field name="name">Appointment</field>
+        <field name="res_model">available.appointments</field>
+    </record>
+
+    <menuitem
+            id="available_appointments_item"
+            name="Available Appointments"
+            parent="available_appointments_menu"
+            action="available_appointments_action"
+    />
+</odoo>

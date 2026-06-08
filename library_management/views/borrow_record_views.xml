@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <record id="borrow_record_view_tree" model="ir.ui.view">
+            <field name="name">borrow.record.tree</field>
+        <field name="model">borrow.record</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="user_id"/>
+                    <field name="book_id"/>
+                    <field name="status"/>
+                </tree>
+        </field>
+        </record>
+    <record id="borrow_record_view_form" model="ir.ui.view">
+        <field name="name">borrow.record.form</field>
+        <field name="model">borrow.record</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="book_id"/>
+                            <field name="status"/>
+                            <field name="borrow_date"/>
+                            <field name="return_date"/>
+                        </group>
+
+                    </sheet>
+                </form>
+        </field>
+
+    </record>
+    </data>
+    <record id="borrow_record_action" model="ir.actions.act_window">
+        <field name="name">Borrow Record</field>
+        <field name="res_model">borrow.record</field>
+    </record>
+
+    <menuitem
+            id="borrow_record_item"
+            name="Borrow Record"
+            parent="borrow_record_menu"
+            action="borrow_record_action"
+    />
+
+
+
+
+</odoo>

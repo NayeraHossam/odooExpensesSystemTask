@@ -1,0 +1,39 @@
+<odoo>
+<record id="monthly_report_wizard_view" model="ir.ui.view">
+    <field name="name">monthly.report.wizard.form</field>
+    <field name="model">monthly.report.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Monthly Expense Report">
+            <group>
+                <field name="month"/>
+                <field name="year"/>
+            </group>
+
+            <footer>
+                <button name="action_generate_report"
+                        string="Generate"
+                        type="object"
+                        class="btn-primary"/>
+
+                <button string="Cancel"
+                        special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+    <record id="monthly_report_wizard_action"
+            model="ir.actions.act_window">
+
+        <field name="name">Monthly Expense Report</field>
+        <field name="res_model">monthly.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem
+    id="menu_monthly_report"
+    name="Monthly Report"
+    parent="expense_menu"
+    action="monthly_report_wizard_action"/>
+</odoo>

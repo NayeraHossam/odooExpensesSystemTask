@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_patient,access_patient,model_patient,,1,1,1,1
+access_doctor,access_doctor,model_doctor,,1,1,1,1
+access_available_appointments,access_available_appointments,model_available_appointments,,1,1,1,1
+access_clinic,access_clinic,model_clinic,,1,1,1,1
+access_appointment,access_appointment,model_appointment,,1,1,1,1
+
+

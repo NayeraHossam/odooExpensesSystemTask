@@ -1,0 +1,47 @@
+<odoo>
+    <record id="borrow_book_wizard_form"
+        model="ir.ui.view">
+
+    <field name="name">borrow.book.wizard.form</field>
+    <field name="model">borrow.book.wizard</field>
+
+    <field name="arch" type="xml">
+        <form string="Borrow Book">
+
+            <group>
+                <field name="user_id"/>
+                <field name="book_id"/>
+                <field name="borrow_date"/>
+            </group>
+
+            <footer>
+
+                <button name="action_borrow"
+                        string="Borrow"
+                        type="object"
+                        class="btn-primary"/>
+
+                <button string="Cancel"
+                        special="cancel"/>
+
+            </footer>
+
+        </form>
+    </field>
+
+</record>
+    <record id="borrow_book_wizard_action"
+        model="ir.actions.act_window">
+
+    <field name="name">Borrow Book</field>
+    <field name="res_model">borrow.book.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+
+</record>
+    <menuitem
+        id="borrow_book_wizard_menu"
+        name="Borrow Book"
+        parent="library_books_menu"
+        action="borrow_book_wizard_action"/>
+</odoo>

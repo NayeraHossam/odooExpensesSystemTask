@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <record id="sale_record_view_tree" model="ir.ui.view">
+            <field name="name">sale.record.tree</field>
+        <field name="model">sale.record</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="user_id"/>
+                    <field name="book_id"/>
+                    <field name="price"/>
+                </tree>
+        </field>
+        </record>
+    <record id="sale_record_view_form" model="ir.ui.view">
+        <field name="name">sale.record.form</field>
+        <field name="model">sale.record</field>
+        <field name="arch" type="xml">
+                <form>
+                    <header>
+                <button name="action_confirm"
+                        string="Confirm"
+                        type="object"
+                        class="btn-primary"/>
+            </header>
+
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+
+                            <button name="action_view_sale_order"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-shopping-cart"
+                                    invisible="not sale_order_id">
+
+                                <field name="sale_order_id"
+                                       string="Sale Order"
+                                       widget="statinfo"/>
+                            </button>
+
+                        </div>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="book_id"/>
+                            <field name="price"/>
+                            <field name="quantity"/>
+                            <field name="total_price"/>
+                        </group>
+
+                    </sheet>
+                </form>
+        </field>
+
+    </record>
+    </data>
+    <record id="sale_record_action" model="ir.actions.act_window">
+        <field name="name">Sale Record</field>
+        <field name="res_model">sale.record</field>
+    </record>
+
+    <menuitem
+            id="sale_record_item"
+            name="Sale Record"
+            parent="sale_record_menu"
+            action="sale_record_action"
+    />
+</odoo>

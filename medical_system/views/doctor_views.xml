@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="doctor_view_tree" model="ir.ui.view">
+            <field name="name">doctor.tree</field>
+        <field name="model">doctor</field>
+        <field name="arch" type="xml">
+
+                <tree>
+                    <field name="name"/>
+                    <field name="email"/>
+                </tree>
+        </field>
+
+        </record>
+        <record id="doctor_view_form" model="ir.ui.view">
+            <field name="name">doctor.form</field>
+        <field name="model">doctor</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="appointment_ids">
+                            <tree editable="bottom">
+                                <field name="appointment_datetime"/>
+                            </tree>
+                        </field>
+                        </group>
+                        <notebook>
+                        <page string="Patients">
+                            <field name="patient_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Reservations">
+                                <field name="clinic_ids">
+                                    <tree>
+                                        <field name="clinic_name"/>
+                                        <field name="patient_id"/>
+                                        <field name="appointment"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                    </notebook>
+
+                    </sheet>
+                </form>
+        </field>
+        </record>
+    </data>
+    <record id="doctor_action" model="ir.actions.act_window">
+        <field name="name">Doctor</field>
+        <field name="res_model">doctor</field>
+    </record>
+
+    <menuitem
+            id="doctor_item"
+            name="Doctor"
+            parent="doctor_menu"
+            action="doctor_action"
+    />
+</odoo>

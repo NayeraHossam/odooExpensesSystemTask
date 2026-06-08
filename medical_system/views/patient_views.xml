@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <record id="patient_view_tree" model="ir.ui.view">
+            <field name="name">patient.tree</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <field name="next_appointment"/>
+                    <field name="doctor_id"/>
+                </tree>
+        </field>
+
+        </record>
+        <record id="patient_view_form" model="ir.ui.view">
+            <field name="name">patient.form</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="ph_number"/>
+                        </group>
+                        <group>
+                            <field name="doctor_id"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+
+                        </group>
+                        <notebook>
+                        <page string="Next Appointment">
+                                <tree editable="bottom">
+                                    <field name="next_appointment"/>
+                                </tree>
+                        </page>
+                        <page string="Medical History">
+                                <field name="clinic_ids">
+                                    <tree>
+                                        <field name="clinic_name"/>
+                                        <field name="doctor_id"/>
+                                        <field name="appointment"/>
+                                        <field name="reason"/>
+                                    </tree>
+                                </field>
+                            </page>
+                    </notebook>
+                    </sheet>
+                </form>
+        </field>
+        </record>
+    </data>
+    <record id="patient_action" model="ir.actions.act_window">
+        <field name="name">Patient</field>
+        <field name="res_model">patient</field>
+    </record>
+
+    <menuitem
+            id="patient_item"
+            name="Patient"
+            parent="patient_menu"
+            action="patient_action"
+    />
+</odoo>

@@ -1,0 +1,43 @@
+<odoo>
+
+    <record id="view_library_member_kanban" model="ir.ui.view">
+        <field name="name">library.member.kanban</field>
+        <field name="model">library.member</field>
+        <field name="arch" type="xml">
+
+            <kanban class="o_kanban_small_column">
+
+                <field name="library_id"/>
+                <!--<field name="active"/>-->
+
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+
+                            <strong>
+                                <field name="library_id"/>
+                            </strong>
+                        </div>
+                    </t>
+                </templates>
+
+            </kanban>
+
+        </field>
+    </record>
+
+
+    <record id="library_member_action" model="ir.actions.act_window">
+        <field name="name">library Member</field>
+        <field name="res_model">library.member</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+
+    <menuitem id="library_member_item"
+              name="Library Member"
+              parent="library_member_menu"
+              action="library_member_action"/>
+
+</odoo>

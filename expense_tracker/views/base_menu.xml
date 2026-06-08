@@ -1,0 +1,27 @@
+<odoo>
+    <menuitem
+            id="expense_tracker_menu"
+            name="Expense Tracker"
+
+    />
+    <menuitem
+            id="budget_dashboard_menu"
+            name="Dashboard"
+            parent="expense_tracker_menu"
+    />
+
+    <menuitem
+            id="expense_user_menu"
+            name="User"
+            parent="expense_tracker_menu"
+    />
+    <menuitem
+            id="expense_menu"
+            name="Expenses"
+            parent="expense_tracker_menu"
+    />
+
+
+
+
+</odoo>

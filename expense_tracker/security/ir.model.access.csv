@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_expense_user,access_expense_user,model_expense_user,,1,1,1,1
+access_expense,access_expense,model_expense,,1,1,1,1
+access_monthly_report_wizard,access_monthly_report_wizard,model_monthly_report_wizard,,1,1,1,1

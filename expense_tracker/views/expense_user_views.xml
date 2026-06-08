@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <record id="expense_user_view_tree" model="ir.ui.view">
+            <field name="name">expense.user.tree</field>
+        <field name="model">expense.user</field>
+        <field name="arch" type="xml">
+                <tree decoration-danger="is_budget_low">
+                    <field name="partner_id"/>
+                    <field name="budget"/>
+                    <field name="is_budget_low"/>
+                    <!--<field name="active"/>-->
+                </tree>
+        </field>
+        </record>
+    <record id="expense_user_view_form" model="ir.ui.view">
+        <field name="name">expense.user.form</field>
+        <field name="model">expense.user</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="email"/>
+                            <field name="budget"/>
+                            <field name="is_budget_low"/>
+                            <!--<field name="active"/>-->
+                        </group>
+
+                    </sheet>
+                </form>
+        </field>
+
+    </record>
+    </data>
+    <record id="expense_user_action" model="ir.actions.act_window">
+        <field name="name">Expense User</field>
+        <field name="res_model">expense.user</field>
+    </record>
+
+
+
+
+    <menuitem
+            id="user_menu_item"
+            name="User Expenses"
+            parent="expense_user_menu"
+            action="expense_user_action"
+    />
+</odoo>

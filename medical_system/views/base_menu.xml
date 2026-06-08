@@ -1,0 +1,34 @@
+<odoo>
+    <menuitem
+            id="medical_system"
+            name="Medical System"
+
+    />
+
+    <menuitem
+            id="patient_menu"
+            name="Patient"
+            parent="medical_system"
+    />
+    <menuitem
+            id="doctor_menu"
+            name="Doctor"
+            parent="medical_system"
+    />
+    <menuitem
+            id="available_appointments_menu"
+            name="Available Appointments"
+            parent="doctor_menu"
+    />
+    <menuitem
+            id="clinic_menu"
+            name="Clinic"
+            parent="medical_system"
+    />
+    <menuitem
+            id="appointment_menu"
+            name="Appointment"
+            parent="clinic_menu"
+    />
+
+</odoo>

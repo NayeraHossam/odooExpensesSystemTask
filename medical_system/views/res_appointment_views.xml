@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <record id="res_appointment_view_tree" model="ir.ui.view">
+            <field name="name">res.appointment.tree</field>
+        <field name="model">appointment</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="reason"/>
+                    <field name="appointment"/>
+                    <field name="clinic_name"/>
+                </tree>
+        </field>
+
+        </record>
+        <record id="res_appointment_view_form" model="ir.ui.view">
+            <field name="name">res.appointment.form</field>
+        <field name="model">appointment</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="clinic_name"/>
+                            <field name="doctor_id"/>
+                            <field name="appointment"/>
+                        </group>
+                        <notebook>
+                            <page string="Available Dates">
+                                <field name="available_appointment_ids" readonly="1">
+                                    <tree>
+                                        <field name="appointment_datetime"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="reason"/>
+                        </group>
+                    </sheet>
+                </form>
+        </field>
+        </record>
+    </data>
+    <record id="res_appointment_action" model="ir.actions.act_window">
+        <field name="name">Appointment</field>
+        <field name="res_model">appointment</field>
+    </record>
+
+    <menuitem
+            id="appointment_item"
+            name="Appointment"
+            parent="appointment_menu"
+            action="res_appointment_action"
+    />
+</odoo>

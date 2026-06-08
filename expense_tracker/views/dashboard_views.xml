@@ -1,0 +1,54 @@
+<odoo>
+
+    <record id="view_expense_user_kanban" model="ir.ui.view">
+        <field name="name">expense.user.kanban</field>
+        <field name="model">expense.user</field>
+        <field name="arch" type="xml">
+
+            <kanban class="o_kanban_small_column">
+
+                <field name="partner_id"/>
+                <field name="budget"/>
+                <field name="is_budget_low"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+
+                            <strong>
+                                <field name="partner_id"/>
+                            </strong>
+
+                            <div>
+                                 Budget:
+                                <field name="budget"/>
+                            </div>
+
+
+                        </div>
+                    </t>
+                </templates>
+
+            </kanban>
+
+        </field>
+    </record>
+
+
+    <record id="budget_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Budget Dashboard</field>
+        <field name="res_model">expense.user</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+
+    <menuitem id="budget_dashboard_menu"
+              name="Budget Dashboard"
+              sequence="1"/>
+
+    <menuitem id="budget_dashboard_item"
+              name="Dashboard"
+              parent="budget_dashboard_menu"
+              action="budget_dashboard_action"/>
+
+</odoo>

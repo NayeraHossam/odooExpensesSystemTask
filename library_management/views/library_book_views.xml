@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <record id="library_books_view_tree" model="ir.ui.view">
+            <field name="name">library.books.tree</field>
+        <field name="model">library.books</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="author"/>
+                    <field name="category"/>
+                    <field name="available_quantity"/>
+                    <field name="related_product"/>
+                    <field name="order_count"/>
+                </tree>
+        </field>
+        </record>
+    <record id="library_books_view_form" model="ir.ui.view">
+        <field name="name">library.books.form</field>
+        <field name="model">library.books</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="author"/>
+                            <field name="category"/>
+                            <field name="date"/>
+                            <field name="price_borrow"/>
+                            <field name="price_buy"/>
+                            <field name="available_quantity"/>
+
+                        </group>
+                        <notebook>
+                        <page string="Product">
+                                <tree editable="bottom">
+                                    <field name="related_product"/>
+                                </tree>
+
+                        </page>
+                    </notebook>
+
+                    </sheet>
+                </form>
+        </field>
+
+    </record>
+    </data>
+    <record id="library_books_action" model="ir.actions.act_window">
+        <field name="name">Library Books</field>
+        <field name="res_model">library.books</field>
+    </record>
+
+    <menuitem
+            id="library_books_item"
+            name="Library Books"
+            parent="library_books_menu"
+            action="library_books_action"
+    />
+
+
+
+
+</odoo>
